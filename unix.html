@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    var url = new URL(window.location.href);
+    var params = new URLSearchParams(url.search);
+    var unixValue = params.get("unix");
+    var date = new Date(unixValue * 1000);
+    var year = date.getFullYear();
+    var month = ("0" + (date.getMonth() + 1)).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+    var hours = ("0" + date.getHours()).slice(-2);
+    var minutes = ("0" + date.getMinutes()).slice(-2);
+    var seconds = ("0" + date.getSeconds()).slice(-2);
+    var formattedTime = {
+      year: year,
+      month: month,
+      day: day,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    };
+    document.write(JSON.stringify(formattedTime));
+  </script>
+</body>
+</html>
